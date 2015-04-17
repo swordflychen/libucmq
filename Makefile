@@ -2,6 +2,7 @@
 # date: 2014-10-20
 #
 
+# variables.
 TARGET=libucmq.a
 TEST=test_ucmq
 OBJ_DIR=./obj
@@ -12,8 +13,8 @@ LIBS=-lrt -lpthread
 LIBA=-lucmq
 
 CFLAGS=-Wall -g -pipe -march=native -Wall -Wparentheses -Winline -Wuninitialized -Wunused -Wcomment -Wformat -Wimplicit -Wsequence-point -Wfloat-equal -Wshadow -fstack-protector-all -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 --std=gnu99
-#CFLAGS=-Wall -O2
 
+# object file.
 OBJ = $(addprefix $(OBJ_DIR)/, \
       util.o \
       log.o \
@@ -45,3 +46,8 @@ clean:
 	rm -f $(TEST)
 	rm -f $(TARGET)
 	rm -rf $(OBJ_DIR)
+
+push:
+	git push -u origin master
+
+.PHONY: all clean push
